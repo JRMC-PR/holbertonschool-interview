@@ -7,11 +7,11 @@
  *
  * Return: pointer to the new node, or NULL on failure
  */
-binary_tree_s *binary_tree_node(binary_tree_s *parent, int value)
+struct binary_tree_s *binary_tree_node(struct binary_tree_s *parent, int value)
 {
-    binary_tree_s *new_node;
+    struct binary_tree_s *new_node;
 
-    new_node = malloc(sizeof(binary_tree_s));
+    new_node = malloc(sizeof(struct binary_tree_s));
     if (new_node == NULL)
     {
         return (NULL);
