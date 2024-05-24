@@ -23,12 +23,12 @@ heap_t *heap_insert(heap_t **root, int value)
         if (!node->left)
         {
             node->left = binary_tree_node(node, value);
-            return node->left;
+            return heapify(node->left);
         }
         else if (!node->right)
         {
             node->right = binary_tree_node(node, value);
-            return node->right;
+            return heapify(node->right);
         }
         else
         {
@@ -38,4 +38,25 @@ heap_t *heap_insert(heap_t **root, int value)
                 node = node->right;
         }
     }
+}
+
+/**
+ * heapify - fix the Max Binary Heap
+ * @node: inserted node
+ *
+ * Return: pointer to the root node
+ */
+heap_t *heapify(heap_t *node)
+{
+    int temp;
+
+    while (node->parent && node->n > node->parent->n)
+    {
+        temp = node->parent->n;
+        node->parent->n = node->n;
+        node->n = temp;
+        node = node->parent;
+    }
+
+    return (node);
 }
