@@ -1,5 +1,5 @@
-#ifndef main_h
-#define main_h
+#ifndef binary_trees_h
+#define binary_trees_h
 #include <stdlib.h>
 
 typedef struct binary_tree_s
