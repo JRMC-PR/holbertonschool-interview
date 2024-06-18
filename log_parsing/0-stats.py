@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-""""This modlue parses logs"""
+"""
+This module is used to parse logs. It reads logs from the standard input,
+parses them, and prints statistics every 10 lines.
+The log format is as follows:
+138.177.72.56 - [2024-06-18 08:48:09.143003] "GET /projects/260 HTTP/1.1"
+500 256
+"""
 
-# 138.177.72.56 - [2024-06-18 08:48:09.143003] "GET /projects/260 HTTP/1.1" 500 256
-#   1           2           3        4          5             6     7       8    9
-
-# Todo: Read input
-# Todo: Parse input
-# Todo: Print stats every 10 lines
 # Variables
-log_input = input()
-parsed_data = []
-file_size = 0
-status_codes = {
+log_input = input()  # Read the first line of input
+parsed_data = []  # List to store parsed data
+file_size = 0  # Variable to store the total file size
+status_codes = {  # Dictionary to store the count of each status code
     "200": 0,
     "301": 0,
     "400": 0,
@@ -21,27 +21,32 @@ status_codes = {
     "405": 0,
     "500": 0,
 }
+
+# Main loop
 while log_input:
-    # Verify that the data is complete
+    # Loop to process 10 lines at a time
     for i in range(10):
-        # parse the data
+        # Parse the data and add it to the parsed_data list
         parsed_data.append(log_input.split())
+        # If the data is not complete, read the next line and
+        # # continue to the next iteration
         if len(parsed_data[i]) != 9:
             log_input = input()
             continue
-        # count file size
+        # Add the file size to the total
         file_size += int(parsed_data[i][8])
-        # add status code to dictionary
+        # Increment the count of the status code in the dictionary
         key = parsed_data[i][7]
         status_codes[key] += 1
 
-    # print the stats
+    # Print the total file size
     print(f"File size: {file_size}")
+    # Print the count of each status code
     for key, value in status_codes.items():
         if value != 0:
             print(f"{key}: {value}")
 
-    # reset the variables
+    # Reset the parsed_data list for the next batch of lines
     parsed_data = []
-    # print(log_input)
+    # Read the next line of input
     log_input = input()
