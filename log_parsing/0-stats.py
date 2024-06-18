@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""""This modlue parses logs"""
 
 # 138.177.72.56 - [2024-06-18 08:48:09.143003] "GET /projects/260 HTTP/1.1" 500 256
 #   1           2           3        4          5             6     7       8    9
@@ -6,7 +7,7 @@
 # Todo: Read input
 # Todo: Parse input
 # Todo: Print stats every 10 lines
-
+# Variables
 log_input = input()
 parsed_data = []
 file_size = 0
