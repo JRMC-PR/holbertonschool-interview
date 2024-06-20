@@ -2,6 +2,7 @@
 """This module contains a function that calculates the fewest number of
 operations needed to result in exactly n H characters in the file."""
 
+
 def minOperations(n):
     """This function calculates the fewest number of operations needed to
     result in exactly n H characters in the file."""
