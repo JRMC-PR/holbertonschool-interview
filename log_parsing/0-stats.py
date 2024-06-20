@@ -2,9 +2,6 @@
 """
 This module is used to parse logs. It reads logs from the standard input,
 parses them, and prints statistics every 10 lines.
-The log format is as follows:
-138.177.72.56 - [2024-06-18 08:48:09.143003] "GET /projects/260 HTTP/1.1"
-500 256
 """
 
 # Variables
