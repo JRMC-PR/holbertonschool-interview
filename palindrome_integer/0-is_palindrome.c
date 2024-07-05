@@ -1,6 +1,6 @@
-#include <string.h> // For strlen
-#include <stdlib.h> // For atoi
-#include <stdio.h> // For sprintf
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * is_palindrome - Check if a number is a palindrome
@@ -11,9 +11,11 @@
  */
 int is_palindrome(unsigned long n){
     char str[20];
+    int i;
+    int len;
     sprintf(str, "%lu", n);
-    int len = strlen(str);
-    for (int i = 0; i < len / 2; i++){
+    len = strlen(str);
+    for (i = 0; i < len / 2; i++){
         if (str[i] != str[len - i - 1]){
             return 0;
         }
