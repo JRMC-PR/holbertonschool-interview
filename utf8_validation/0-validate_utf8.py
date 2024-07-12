@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def validUTF8(data):
     """
     Determines if a given dataset represents a valid UTF-8 encoding.
